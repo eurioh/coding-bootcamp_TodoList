@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <title>To do list</title>
+</head>
+
+<body>
+    <div class="box" id="heading">
+        <h1><%= kindofDay %></h1>
+    </div>
+
+    <div class="box">
+        <!-- <% %> is used for non html and css elemenets. Add it on each line -->
+        <!-- 4. one <li><%= newListItems %></li> will upload newListItem in a single line.
+             so for loop as much as the newListItem.length allows -->
+
+        <% for (var i=0; i < newListItems.length; i++){ %>
+        <div class="item">
+            <input type="checkbox">
+            <p><%=newListItems[i]%></p>
+        </div>
+        <% }%>
+
+        <!--Todo items input and submit button -->
+        <form class="item" action="/" method="POST">
+            <input type="text" name="newItem" placeholder="New Item" autocomplete="off"> 
+            <button type="submit" name="button">+</button>
+        </form>
+
+
+    </div>
+
+
+
+</body>
+
+</html>
