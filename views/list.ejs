@@ -14,20 +14,23 @@
     </div>
 
     <div class="box">
-        <!-- <% %> is used for non html and css elemenets. Add it on each line -->
-        <!-- 4. one <li><%= newListItems %></li> will upload newListItem in a single line.
-             so for loop as much as the newListItem.length allows -->
 
-        <% for (var i=0; i < newListItems.length; i++){ %>
-        <div class="item">
-            <input type="checkbox">
-            <p><%=newListItems[i]%></p>
-        </div>
-        <% }%>
+        <% newListItems.forEach(function(item){ %>
+
+        <!-- check box and deletion  -->
+        <form action="/delete" method="POST">
+            <div class="item">
+                <!-- use ejs for each posting's item.id  -->
+                <input type="checkbox" name="checkbox" value="<%= item.id %>" onChange="this.form.submit()">
+                <p><%=item.content%></p>
+            </div>
+        </form>
+        <% })%>
+
 
         <!--Todo items input and submit button -->
         <form class="item" action="/" method="POST">
-            <input type="text" name="newItem" placeholder="New Item" autocomplete="off"> 
+            <input type="text" name="newItem" placeholder="New Item" autocomplete="off">
             <button type="submit" name="button">+</button>
         </form>
 
